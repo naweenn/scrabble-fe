@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Scrabble Points Calculator</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href='css/boxicons.min.css' rel='stylesheet'>
+    <link href="css/scrabble.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="mx-auto p-3 m-3 border rounded shadow d-flex flex-column justify-content-center align-items-center">
+
+        <h1>Scrabble Points Calculator</h1>
+
+        <div class="input-group d-flex justify-content-between px-5 py-3">
+          <div>Score: <span id="score">0</span></div>
+          <div>
+            <button id="btnDisplayTopScores" class="btn btn-lg btn-outline-success">
+              <i class='bx bx-trophy' ></i> Top Scores
+            </button>
+          </div>
+        </div>
+
+        <!-- Start: Top scores modal -->
+        <div class="modal fade" id="modalTopScores" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Top Scores</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body" id="topScoresModalBody">
+
+                <table id="topScoresTable" class="table table-hover">
+                  <thead>
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">Word</th>
+                      <th scope="col">Score</th>
+                    </tr>
+                  </thead>
+                  <tbody id="topScoresTableBody">
+                  </tbody>
+                </table>
+
+              </div> <!-- End: Modal body -->
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- End: Top scores modal -->
+
+        <!-- Start: Message popup -->
+        <div class="modal fade" id="modalShowMessage" tabindex="-1"
+             aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="modalShowMessageTitle"></h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+
+                <P id="modalShowMessageBody"></P>
+
+              </div> <!-- End: Modal body -->
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- End: Message popup -->
+
+        <div class="input-group mt-3 d-flex justify-content-center align-items-center">
+          <div class="col-md-1">
+            <input type="text" class="form-control letter-input" maxlength="1"s />
+          </div>
+          <div class="col-md-1">
+            <input type="text" class="form-control letter-input" maxlength="1" />
+          </div>
+          <div class="col-md-1">
+            <input type="text" class="form-control letter-input" maxlength="1" />
+          </div>
+          <div class="col-md-1">
+            <input type="text" class="form-control letter-input" maxlength="1" />
+          </div>
+          <div class="col-md-1">
+            <input type="text" class="form-control letter-input" maxlength="1" />
+          </div>
+          <div class="col-md-1">
+            <input type="text" class="form-control letter-input" maxlength="1" />
+          </div>
+          <div class="col-md-1">
+            <input type="text" class="form-control letter-input" maxlength="1" />
+          </div>
+          <div class="col-md-1">
+            <input type="text" class="form-control letter-input" maxlength="1" />
+          </div>
+          <div class="col-md-1">
+            <input type="text" class="form-control letter-input" maxlength="1" />
+          </div>
+          <div class="col-md-1">
+            <input type="text" class="form-control letter-input" maxlength="1" />
+          </div>
+        </div>
+        <!-- End: Letter inputs -->
+
+        <div class="input-group d-flex justify-content-center p-5">
+
+          <div class="mx-3">
+            <button type="button" id="btnResetTiles" class="btn btn-lg btn-outline-secondary">
+              <i class='bx bx-reset' ></i> Reset Tiles
+            </button>
+          </div>
+
+          <div>
+            <button id="btnSaveScore" class="btn btn-lg btn-primary"><i class='bx bx-save'></i> Save Score</button>
+          </div>
+
+        </div>
+
+
+      </div>
+      <!-- End: .game-content -->
+    </div>
+    <!-- End: .container -->
+
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/scrabble.js"></script>
+  </body>
+</html>
