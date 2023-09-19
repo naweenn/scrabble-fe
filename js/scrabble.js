@@ -49,7 +49,9 @@ function loadScoreRules() {
     fetch(ENDPOINT_GET_RULES)
         .then(response => {
             if (!response.ok) {
-                throw new Error("Network response was not ok");
+                displayMessage("Error occurred!", "Please try again later!");
+                disableInputs();
+                return;
             }
             return response.json();
         })
@@ -57,6 +59,7 @@ function loadScoreRules() {
 
             if(data.status != RESPONSE_STATUS_SUCCESS) {
                 displayMessage("Error occurred!", "Please try again later!");
+                disableInputs();
                 return;
             }
 
@@ -65,8 +68,15 @@ function loadScoreRules() {
         })
         .catch(error => {
             console.error("Fetch error:", error);
+            disableInputs();
             displayMessage("Error occurred!", "Please try again later!");
         });
+}
+
+function disableInputs() {
+    letterInputs.forEach(input => {
+        input.disabled = true;
+    });
 }
 
 function saveScore() {
@@ -182,6 +192,7 @@ function displayMessage(title, message) {
 function validateLetterInputs(input) {
     let letter = input.value;
     letter = letter.substring(0, 1);
+    letter = letter.replace(/\d/g, '')
     letter = letter.toUpperCase();
     input.value = letter;
 }
