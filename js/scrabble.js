@@ -231,11 +231,12 @@ function isValidWord(word) {
     word = word.trim();
 
     if(word.length < MIN_WORD_LENGTH || word.length > MAX_WORD_LENGTH) {
+        displayMessage("Error!", "Length of the word must be between 1 to 10.");
         return false;
     }
 
     if(word.includes(STRING_SPACE)) {
-        displayMessage("Error!", "Word can not contain spaces");
+        displayMessage("Error!", "Word can not contain spaces.");
         return false;
     }
 
