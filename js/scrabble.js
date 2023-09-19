@@ -189,12 +189,26 @@ function displayMessage(title, message) {
     $('#modalShowMessage').modal('show');
 }
 
+function moveToNextInput() {
+    const focusedElement = document.activeElement;
+    const currentIndex = Array.from(letterInputs).indexOf(focusedElement);
+
+    if (currentIndex !== -1 && currentIndex < letterInputs.length - 1) {
+        const nextElement = letterInputs[currentIndex + 1];
+        nextElement.focus();
+    }
+}
+
 function validateLetterInputs(input) {
     let letter = input.value;
     letter = letter.substring(0, 1);
     letter = letter.replace(/\d/g, '')
     letter = letter.toUpperCase();
     input.value = letter;
+
+    if(letter.length > 0) {
+        moveToNextInput();
+    }
 }
 
 function resetTiles() {
